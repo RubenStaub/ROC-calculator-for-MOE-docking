@@ -66,12 +66,14 @@ for i in range(1,len(tpr)):
 print('AUC computed: {:.3f}'.format(auc))
 
 ef = (tp[NB_EF_TEST-1]/NB_EF_TEST)/(NB_POSITIVE/NB_COMPOUNDS)
+ef_half = (tp[round(NB_EF_TEST/2)-1]/NB_EF_TEST)/(NB_POSITIVE/NB_COMPOUNDS)
 print('EF{:d} computed: {:.2f}'.format(NB_EF_TEST,ef))
+print('EF{:d} computed: {:.2f}'.format(round(NB_EF_TEST/2),ef_half))
 
 print('Displaying ROC curve')
 plt.xlabel('False positive rate')
 plt.ylabel('True positive rate')
-plt.title('ROC curve (AUC = {:.2f}, EF{:d} = {:.2f})'.format(auc,NB_EF_TEST,ef))
+plt.title('ROC curve (AUC = {:.2f}, EF{:d} = {:.2f}, EF{:d} = {:.2f})'.format(auc,NB_EF_TEST,ef,round(NB_EF_TEST/2),ef_half))
 plt.plot(fpr,tpr)
 plt.plot([0,1],[0,1],color='black')
 plt.show()
