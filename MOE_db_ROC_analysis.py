@@ -21,22 +21,29 @@ else:
 	NB_POSITIVE = 10
 NB_EF_TEST = NB_POSITIVE
 
+print('Opening '+sys.argv[1])
 file = open(sys.argv[1])
 
 scores = [MAX_VALUE for i in range(NB_COMPOUNDS)]
 line = file.readline()
 cols = line.split(',')
+nb_cols = len(cols)
 score_col = cols.index('S')
 mseq_col = cols.index('mseq')
 
+line_count = 0
 for line in file.readlines():
 	data = line.split(',')
+	if(len(data) != nb_cols):
+		break
 	score = float(data[score_col])
 	mseq = int(data[mseq_col])
 	if(score < scores[mseq-1]):
 		scores[mseq-1]=score
+	line_count += 1
 
 file.close()
+print('{:d} lines of data read'.format(line_count))
 
 tp = [0 for i in range(100)]
 fp = [0 for i in range(100)]
@@ -51,16 +58,23 @@ for nb in range(100):
 
 tpr = [tp[i]/NB_POSITIVE for i in range(len(tp))]
 fpr = [fp[i]/(NB_COMPOUNDS-NB_POSITIVE) for i in range(len(fp))]
+print('Data extracted')
 
-aoc = 0
+auc = 0
 for i in range(1,len(tpr)):
-	aoc += (fpr[i]-fpr[i-1])*(tpr[i]+tpr[i-1])/2
+	auc += (fpr[i]-fpr[i-1])*(tpr[i]+tpr[i-1])/2
+print('AUC computed: {:.3f}'.format(auc))
 
 ef = (tp[NB_EF_TEST-1]/NB_EF_TEST)/(NB_POSITIVE/NB_COMPOUNDS)
+print('EF{:d} computed: {:.2f}'.format(NB_EF_TEST,ef))
 
+print('Displaying ROC curve')
 plt.xlabel('False positive rate')
 plt.ylabel('True positive rate')
-plt.title('ROC curve (AUC = {:.2f}, EF{:d} = {:.2f})'.format(aoc,NB_EF_TEST,ef))
+plt.title('ROC curve (AUC = {:.2f}, EF{:d} = {:.2f})'.format(auc,NB_EF_TEST,ef))
 plt.plot(fpr,tpr)
 plt.plot([0,1],[0,1],color='black')
 plt.show()
+
+print('Exiting')
+exit()
