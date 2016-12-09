@@ -8,8 +8,8 @@ As a consequence, this script takes as input a MOE docking database training set
 For input simplicity, the positive compounds are required to be listed first (lowest "mseq" values).
 (In the context of the project, the decoys are listed at the end, which explains this choice. Indeed, I had to keep it simple for my colleagues to use it easily, and I simply didn't have time to implement a user-friendly interface... But you are welcome to contribute ! ^^)
 
-Usage : MOE_db_ROC_analysis.py [filename.txt] ([NB_COMPOUNDS] [NB_POSITIVE_COMPOUNDS])
-(By default, if NB_COMPOUNDS and NB_POSITIVE_COMPOUNDS are missing, they are set to values adapted to the project it was initially designed for)
+#### Usage : MOE_db_ROC_analysis.py \[input_file.txt\] (\[nb_compounds\] \[nb_positive_compounds\]) 
+(By default, if nb_compounds and nb_positive_compounds are missing, they are set to values adapted to the project it was initially designed for)
 
 This script computes and display : 
 - the ROC (Receiver Operating Curve) curve (https://en.wikipedia.org/wiki/Receiver_operating_characteristic)
