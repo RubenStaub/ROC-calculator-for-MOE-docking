@@ -18,3 +18,7 @@ This script computes and display :
 
 #### Warning:
 There is **no gestion of bad input** (contributors are, once again, welcomed), so please be extra careful. As a consequence, no warranty whatsoever is provided !
+
+## Dependencies:
+- Python 3
+- [matplotlib](https://github.com/matplotlib/matplotlib).pyplot module
