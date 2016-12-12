@@ -20,20 +20,22 @@ else:
 	NB_COMPOUNDS = 100
 	NB_POSITIVE = 10
 NB_EF_TEST = NB_POSITIVE
+SCORE_NAME = 'S'
+SPLIT_DELIMITER = ','
 
 print('Opening '+sys.argv[1])
 file = open(sys.argv[1])
 
 scores = [MAX_VALUE for i in range(NB_COMPOUNDS)]
 line = file.readline().split('\n')[0]
-cols = line.split(',')
+cols = line.split(SPLIT_DELIMITER)
 nb_cols = len(cols)
-score_col = cols.index('S')
+score_col = cols.index(SCORE_NAME)
 mseq_col = cols.index('mseq')
 
 line_count = 0
 for line in file.readlines():
-	data = line.split('\n')[0].split(',')
+	data = line.split('\n')[0].split(SPLIT_DELIMITER)
 	if(len(data) != nb_cols):
 		break
 	score = float(data[score_col])
