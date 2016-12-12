@@ -25,7 +25,7 @@ print('Opening '+sys.argv[1])
 file = open(sys.argv[1])
 
 scores = [MAX_VALUE for i in range(NB_COMPOUNDS)]
-line = file.readline()
+line = file.readline().split('\n')[0]
 cols = line.split(',')
 nb_cols = len(cols)
 score_col = cols.index('S')
@@ -33,7 +33,7 @@ mseq_col = cols.index('mseq')
 
 line_count = 0
 for line in file.readlines():
-	data = line.split(',')
+	data = line.split('\n')[0].split(',')
 	if(len(data) != nb_cols):
 		break
 	score = float(data[score_col])
