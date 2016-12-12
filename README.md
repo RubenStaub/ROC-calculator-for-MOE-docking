@@ -65,7 +65,7 @@ Install matplotlib for Python, or you have used python3 to execute MOE_db_ROC_an
 
 Python doesn't have access to your display. It is most likely that you are using Bash on Windows 10. Unfortunately, there is not much to do about it. (It would be convienient to save plot as PNG before displaying it, but I haven't implemented it, contributors are again welcomed). Consider using a real UNIX environment, or install python and matplotlib without using Bash on Windows 10.
 
-- If you have a message indicating that either "S" or "mseq" is not found, then your file is corrupted. Please check that at least "mseq" and the scoring function "S" columns are presents
+- If you have a message indicating that either "S" or "mseq" is notin list, then your file is probably corrupted (please check that at least "mseq" and the scoring function "S" columns are presents), or your file is not comma-separated.
 
 - If the number of lines read is different of what you expected:
 
