@@ -34,6 +34,21 @@ If you don't have Python 3 or if you have issues with Python 3 (matplotlib modul
 - Python >= 2.7
 - [matplotlib](https://github.com/matplotlib/matplotlib).pyplot module for Python
 
+# Data adaptation (advanced)
+
+By default, data must be comma-separated in a table-like format, with the first line being the name of the column.
+And the algorithm uses the column named "S" as scoring function.
+Example:
+
+    mol,rseq,mseq,S,rmsd_refine,E_conf,E_place,E_score1,E_refine,E_score2
+    SMILES1,1,1,-8.2784767,1.592684,-68.218636,-107.6459,-11.340184,-47.245892,-8.2784767
+    SMILES1,1,1,-7.8983178,1.3197823,-67.749825,-70.592857,-10.62048,-39.311447,-7.8983178
+    SMILES2,1,2,-7.1144185,1.3033326,-107.42829,-77.880592,-10.105239,-40.950863,-7.1144185
+    SMILES3,1,3,-8.3567276,1.732754,-36.26281,-37.163311,-8.6390247,-47.169029,-8.3567276
+    SMILES3,1,3,-8.1386061,2.9906955,-40.776348,-49.089916,-9.1031685,-50.324127,-8.1386061
+    SMILES3,1,3,-8.0355749,1.7808715,-40.927792,-73.855156,-9.6199598,-44.299046,-8.0355749
+But you can easily change that by redefining the variables SCORE_NAME (default value 'S') and SPLIT_DELIMITER (default value ',') to fit your needs.
+
 # Troubleshooting
 - If you have the following message:
 
