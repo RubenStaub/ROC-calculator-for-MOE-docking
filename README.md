@@ -50,6 +50,10 @@ Example:
 But you can easily change that by redefining the variables SCORE_NAME (default value 'S') and SPLIT_DELIMITER (default value ',') to fit your needs.
 
 # Troubleshooting
+- If the number of lines read is different of what you expected and/or the results are weird:
+
+`X lines of data read` but your have have more than X+1 lines, you might have data corruption, please check your input file, especially that you don't have fused lines (it seems to be quite recurrent actually), that each line has the same number of comma-separated elements, and that there are no added line in the data part (comments, empty lines, ...)
+
 - If you have the following message:
 
 > Traceback (most recent call last):
@@ -81,10 +85,6 @@ Install matplotlib for Python, or you have used python3 to execute MOE_db_ROC_an
 Python doesn't have access to your display. It is most likely that you are using Bash on Windows 10. Unfortunately, there is not much to do about it. (It would be convienient to save plot as PNG before displaying it, but I haven't implemented it, contributors are again welcomed). Consider using a real UNIX environment, or install python and matplotlib without using Bash on Windows 10.
 
 - If you have a message indicating that either "S" or "mseq" is notin list, then your file is probably corrupted (please check that at least "mseq" and the scoring function "S" columns are presents), or your file is not comma-separated.
-
-- If the number of lines read is different of what you expected:
-
-`X lines of data read` but `wc -l [input_file.txt]` is not X+1, you might have data corruption, please check your input file, especially that each line has the same number of comma-separated elements, and that there are no added line in the data part (comments, empty lines, ...)
 
 - If you have the following message:
 
