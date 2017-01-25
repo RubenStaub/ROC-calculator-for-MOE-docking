@@ -67,8 +67,8 @@ for i in range(1,len(tpr)):
 	auc += (fpr[i]-fpr[i-1])*(tpr[i]+tpr[i-1])/2
 print('AUC computed: {:.3f}'.format(auc))
 
-ef = (tp[NB_EF_TEST-1]/NB_EF_TEST)/(NB_POSITIVE/NB_COMPOUNDS)
-ef_half = (tp[round(NB_EF_TEST/2)-1]/NB_EF_TEST)/(NB_POSITIVE/NB_COMPOUNDS)
+ef = (tp[NB_EF_TEST-1]/float(NB_EF_TEST))/(NB_POSITIVE/NB_COMPOUNDS)
+ef_half = (tp[round(NB_EF_TEST/2)-1]/round(float(NB_EF_TEST)/2))/(NB_POSITIVE/NB_COMPOUNDS)
 print('EF{:d} computed: {:.2f}'.format(NB_EF_TEST,ef))
 print('EF{:d} computed: {:.2f}'.format(round(NB_EF_TEST/2),ef_half))
 
